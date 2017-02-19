@@ -7,8 +7,8 @@ namespace PluginService.HostApp
 {
     class Program
     {
-        private const string PipelinePath = "F:\\Proj\\ConsoleApplication4_5\\Mef\\ETR.PluginService.HostApp\\Pipeline";
-        private const string PluginPath = "F:\\Proj\\ConsoleApplication4_5\\Mef\\ETR.PluginService.HostApp\\Plugins";
+        private const string PipelinePath = "..\\..\\Pipeline";
+        private const string PluginPath = "..\\..\\Plugins";
 
         static void Main(string[] args)
         {
@@ -29,9 +29,9 @@ namespace PluginService.HostApp
                 return;
             }
 
-            var jobTokens = AddInStore.FindAddIns(typeof (Job), PipelinePath, PluginPath);
+            var pluginTokens = AddInStore.FindAddIns(typeof (Plugin), PipelinePath, PluginPath);
 
-            foreach (var token in jobTokens)
+            foreach (var token in pluginTokens)
             {
                 Console.WriteLine(token.AddInFullName);
                 foreach (var item in token)
@@ -41,8 +41,7 @@ namespace PluginService.HostApp
             }
 
 
-            var t = jobTokens.FirstOrDefault();
-            if (t != null)
+            foreach (var pluginToken in pluginTokens)
             {
                 var process = new AddInProcess
                 {
@@ -50,21 +49,22 @@ namespace PluginService.HostApp
                 };
                 //var set = new PermissionSet(PermissionState.Unrestricted);
                 //set.AddPermission(new FileIOPermission(FileIOPermissionAccess.AllAccess, Path.GetDirectoryName(t.AssemblyName.CodeBase)));
-                var job = t.Activate<Job>(process, AddInSecurityLevel.Host);
-                if (job != null)
+                var plugin = pluginToken.Activate<Plugin>(process, AddInSecurityLevel.Host);
+                if (plugin != null)
                 {
-                    job.SetDefaultLog(new FileLog(LogLevelEnum.All));
-                    if (job.Configuration != null)
-                        foreach (var configuration in job.Configuration)
+                    plugin.SetDefaultLog(new FileLog(LogLevelEnum.All));
+                    if (plugin.Configuration != null)
+                        foreach (var configuration in plugin.Configuration)
                             Console.WriteLine(configuration.GetType().FullName);
 
-                    job.Execute();
-                    job.Interrupt();
+                    plugin.Execute();
+                    plugin.Interrupt();
 
-                    var controller = AddInController.GetAddInController(job);
+                    var controller = AddInController.GetAddInController(plugin);
                     controller.Shutdown();
                 }
             }
+
             Console.ReadKey();
         }
     }

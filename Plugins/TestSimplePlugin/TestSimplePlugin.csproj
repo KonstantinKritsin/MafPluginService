@@ -4,27 +4,24 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F128DC3-8D90-48B5-BC86-37F630BF4F04}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{4A9D2305-565C-4726-81B2-1F8091C7D199}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PluginService.HostApp</RootNamespace>
-    <AssemblyName>PluginService.HostApp</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <RootNamespace>TestSimplePlugin</RootNamespace>
+    <AssemblyName>TestSimplePlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>$(SolutionDir)PluginService.HostApp\Plugins\TestSimplePlugin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,18 +35,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileLog.cs" />
-    <Compile Include="LogLevelEnum.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="SimplePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pipeline\PluginService.HostView\PluginService.HostView.csproj">
-      <Project>{c0ee9e41-2711-433c-aa1f-685a886d6c21}</Project>
-      <Name>PluginService.HostView</Name>
+    <ProjectReference Include="..\..\Pipeline\PluginService.AddInView\PluginService.AddInView.csproj">
+      <Project>{89c2fac7-7c07-4d6e-8499-3705afb292e1}</Project>
+      <Name>PluginService.AddInView</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

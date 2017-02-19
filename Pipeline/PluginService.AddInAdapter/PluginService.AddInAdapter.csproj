@@ -4,27 +4,24 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F128DC3-8D90-48B5-BC86-37F630BF4F04}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{155D18B9-944C-4CF2-9A85-4715AC8E5DB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PluginService.HostApp</RootNamespace>
-    <AssemblyName>PluginService.HostApp</AssemblyName>
+    <RootNamespace>PluginService.AddInAdapter</RootNamespace>
+    <AssemblyName>PluginService.AddInAdapter</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>$(SolutionDir)\PluginService.HostApp\Pipeline\AddInSideAdapters\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,21 +32,28 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.AddIn" />
+    <Reference Include="System.AddIn.Contract" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileLog.cs" />
-    <Compile Include="LogLevelEnum.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="PluginViewToContractAddInAdapter.cs" />
+    <Compile Include="ConfigurationViewToContractAddInAdapter.cs" />
+    <Compile Include="LogAddInAdapter.cs" />
+    <Compile Include="LogContractToViewAddInAdapter.cs" />
+    <Compile Include="LogViewToContractAddInAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pipeline\PluginService.HostView\PluginService.HostView.csproj">
-      <Project>{c0ee9e41-2711-433c-aa1f-685a886d6c21}</Project>
-      <Name>PluginService.HostView</Name>
+    <ProjectReference Include="..\PluginService.AddInView\PluginService.AddInView.csproj">
+      <Project>{89c2fac7-7c07-4d6e-8499-3705afb292e1}</Project>
+      <Name>PluginService.AddInView</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginService.Contract\PluginService.Contract.csproj">
+      <Project>{fa434e36-e1d6-4d0c-9af4-a82e76b3c18d}</Project>
+      <Name>PluginService.Contract</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

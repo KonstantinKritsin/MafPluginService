@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F128DC3-8D90-48B5-BC86-37F630BF4F04}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{C0EE9E41-2711-433C-AA1F-685A886D6C21}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PluginService.HostApp</RootNamespace>
-    <AssemblyName>PluginService.HostApp</AssemblyName>
+    <RootNamespace>PluginService.HostView</RootNamespace>
+    <AssemblyName>PluginService.HostView</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,23 +31,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.AddIn" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileLog.cs" />
-    <Compile Include="LogLevelEnum.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Configuration\IntervalConfiguration.cs" />
+    <Compile Include="Configuration\DurationInHourConfiguration.cs" />
+    <Compile Include="Configuration\StartDateConfiguration.cs" />
+    <Compile Include="Configuration\StartHourConfiguration.cs" />
+    <Compile Include="Configuration\StartNow.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pipeline\PluginService.HostView\PluginService.HostView.csproj">
-      <Project>{c0ee9e41-2711-433c-aa1f-685a886d6c21}</Project>
-      <Name>PluginService.HostView</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

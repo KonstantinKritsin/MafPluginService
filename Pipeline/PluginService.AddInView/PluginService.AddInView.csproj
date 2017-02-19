@@ -4,27 +4,24 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F128DC3-8D90-48B5-BC86-37F630BF4F04}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{89C2FAC7-7C07-4D6E-8499-3705AFB292E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PluginService.HostApp</RootNamespace>
-    <AssemblyName>PluginService.HostApp</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <RootNamespace>PluginService.AddInView</RootNamespace>
+    <AssemblyName>PluginService.AddInView</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>$(SolutionDir)\PluginService.HostApp\Pipeline\AddInViews\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,22 +32,19 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.AddIn" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileLog.cs" />
-    <Compile Include="LogLevelEnum.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Configuration\IntervalConfiguration.cs" />
+    <Compile Include="Configuration\DurationInHourConfiguration.cs" />
+    <Compile Include="Configuration\StartDateConfiguration.cs" />
+    <Compile Include="Configuration\StartHourConfiguration.cs" />
+    <Compile Include="Configuration\StartNowConfiguration.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pipeline\PluginService.HostView\PluginService.HostView.csproj">
-      <Project>{c0ee9e41-2711-433c-aa1f-685a886d6c21}</Project>
-      <Name>PluginService.HostView</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

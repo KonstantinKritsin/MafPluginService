@@ -3,19 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.Contract", "PluginService.Contract\PluginService.Contract.csproj", "{FA434E36-E1D6-4D0C-9AF4-A82E76B3C18D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.HostView", "PluginService.HostView\PluginService.HostView.csproj", "{C0EE9E41-2711-433C-AA1F-685A886D6C21}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pipeline", "Pipeline", "{D79E23C3-390F-409B-8984-47486A3C335E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.HostApp", "PluginService.HostApp\PluginService.HostApp.csproj", "{1F128DC3-8D90-48B5-BC86-37F630BF4F04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.HostAdapter", "PluginService.HostAdapter\PluginService.HostAdapter.csproj", "{BEEF4FAC-5A3C-48B8-8E7A-B0805B933302}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.Contract", "Pipeline\PluginService.Contract\PluginService.Contract.csproj", "{FA434E36-E1D6-4D0C-9AF4-A82E76B3C18D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.AddInView", "PluginService.AddInView\PluginService.AddInView.csproj", "{89C2FAC7-7C07-4D6E-8499-3705AFB292E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.HostView", "Pipeline\PluginService.HostView\PluginService.HostView.csproj", "{C0EE9E41-2711-433C-AA1F-685A886D6C21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.AddInAdapter", "PluginService.AddInAdapter\PluginService.AddInAdapter.csproj", "{155D18B9-944C-4CF2-9A85-4715AC8E5DB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.HostAdapter", "Pipeline\PluginService.HostAdapter\PluginService.HostAdapter.csproj", "{BEEF4FAC-5A3C-48B8-8E7A-B0805B933302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.AddInView", "Pipeline\PluginService.AddInView\PluginService.AddInView.csproj", "{89C2FAC7-7C07-4D6E-8499-3705AFB292E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginService.AddInAdapter", "Pipeline\PluginService.AddInAdapter\PluginService.AddInAdapter.csproj", "{155D18B9-944C-4CF2-9A85-4715AC8E5DB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{640420D4-770E-418D-98AB-DE77845AFB4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSimplePlugin", "Plugins\TestSimplePlugin\TestSimplePlugin.csproj", "{4A9D2305-565C-4726-81B2-1F8091C7D199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSimplePluginWithCustomLog", "Plugins\TestSimplePluginWithCustomLog\TestSimplePluginWithCustomLog.csproj", "{7FECEA67-3485-4207-9DC1-56C2B9827FFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F128DC3-8D90-48B5-BC86-37F630BF4F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F128DC3-8D90-48B5-BC86-37F630BF4F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F128DC3-8D90-48B5-BC86-37F630BF4F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F128DC3-8D90-48B5-BC86-37F630BF4F04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA434E36-E1D6-4D0C-9AF4-A82E76B3C18D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA434E36-E1D6-4D0C-9AF4-A82E76B3C18D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA434E36-E1D6-4D0C-9AF4-A82E76B3C18D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,10 +41,6 @@ Global
 		{C0EE9E41-2711-433C-AA1F-685A886D6C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0EE9E41-2711-433C-AA1F-685A886D6C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0EE9E41-2711-433C-AA1F-685A886D6C21}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F128DC3-8D90-48B5-BC86-37F630BF4F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F128DC3-8D90-48B5-BC86-37F630BF4F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F128DC3-8D90-48B5-BC86-37F630BF4F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F128DC3-8D90-48B5-BC86-37F630BF4F04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BEEF4FAC-5A3C-48B8-8E7A-B0805B933302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BEEF4FAC-5A3C-48B8-8E7A-B0805B933302}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEEF4FAC-5A3C-48B8-8E7A-B0805B933302}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +53,14 @@ Global
 		{155D18B9-944C-4CF2-9A85-4715AC8E5DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{155D18B9-944C-4CF2-9A85-4715AC8E5DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{155D18B9-944C-4CF2-9A85-4715AC8E5DB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A9D2305-565C-4726-81B2-1F8091C7D199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A9D2305-565C-4726-81B2-1F8091C7D199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A9D2305-565C-4726-81B2-1F8091C7D199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A9D2305-565C-4726-81B2-1F8091C7D199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FECEA67-3485-4207-9DC1-56C2B9827FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FECEA67-3485-4207-9DC1-56C2B9827FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FECEA67-3485-4207-9DC1-56C2B9827FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FECEA67-3485-4207-9DC1-56C2B9827FFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +71,7 @@ Global
 		{BEEF4FAC-5A3C-48B8-8E7A-B0805B933302} = {D79E23C3-390F-409B-8984-47486A3C335E}
 		{89C2FAC7-7C07-4D6E-8499-3705AFB292E1} = {D79E23C3-390F-409B-8984-47486A3C335E}
 		{155D18B9-944C-4CF2-9A85-4715AC8E5DB8} = {D79E23C3-390F-409B-8984-47486A3C335E}
+		{4A9D2305-565C-4726-81B2-1F8091C7D199} = {640420D4-770E-418D-98AB-DE77845AFB4D}
+		{7FECEA67-3485-4207-9DC1-56C2B9827FFA} = {640420D4-770E-418D-98AB-DE77845AFB4D}
 	EndGlobalSection
 EndGlobal
