@@ -40,4 +40,6 @@ namespace TestSimplePluginWithCustomLog
             _log.Debug(msg);
         }
     }
+
+
 }
